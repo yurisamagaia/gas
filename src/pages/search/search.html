@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Valores
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: #F2F2F2" >
+  <div margin-bottom>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="gasolina">
+        Gasolina
+      </ion-segment-button>
+      <ion-segment-button value="etanol">
+        Etanol
+      </ion-segment-button>
+      <ion-segment-button value="diesel">
+        Diesel
+      </ion-segment-button>
+    </ion-segment>
+    <ion-segment [(ngModel)]="segment" margin-top *ngIf="pesquisa_avancada">
+      <ion-segment-button value="diesels10">
+        Diesel s10
+      </ion-segment-button>
+      <ion-segment-button value="gnv">
+        GNV
+      </ion-segment-button>
+      <ion-segment-button value="glp">
+        GLP
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <button ion-button color="primary" clear block icon-left style="height: 50px" (click)="pesquisaAvancada()" *ngIf="!pesquisa_avancada"><ion-icon name="add"></ion-icon> Mais combustíveis</button>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'gasolina'">
+      <ion-item-group>
+        <ion-item-divider sticky style="background-color: #FAFAFA !important">
+          <ion-label>
+            Balneário Camboriú
+            <small style="color: green">Menor valor</small>
+          </ion-label>
+        </ion-item-divider>
+        <ion-item-sliding>
+          <button ion-item>
+            <h3>Valor médio</h3>
+            <p>R$ 3,379</p>
+          </button>
+        </ion-item-sliding>
+      </ion-item-group>
+      <ion-item-group>
+        <ion-item-divider sticky style="background-color: #FAFAFA !important">
+          <ion-label>
+            Biguaçú
+          </ion-label> 
+        </ion-item-divider>
+        <ion-item-sliding>
+          <button ion-item>
+            <h3>Valor médio</h3>
+            <p>R$ 3,379</p>
+          </button>
+        </ion-item-sliding>
+      </ion-item-group>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'etanol'">
+      <ion-item-group>
+        <ion-item-divider sticky style="background-color: #FAFAFA !important">
+          <ion-label>
+            Balneário Camboriú
+            <small style="color: green">Menor valor</small>
+          </ion-label>
+        </ion-item-divider>
+        <ion-item-sliding>
+          <button ion-item>
+            <h3>Valor médio</h3>
+            <p>R$ 3,376</p>
+          </button>
+        </ion-item-sliding>
+      </ion-item-group>
+      <ion-item-group>
+        <ion-item-divider sticky style="background-color: #FAFAFA !important">
+          <ion-label>
+            Biguaçú
+          </ion-label>
+        </ion-item-divider>
+        <ion-item-sliding>
+          <button ion-item>
+            <h3>Valor médio</h3>
+            <p>R$ 3,376</p>
+          </button>
+        </ion-item-sliding>
+      </ion-item-group>
+    </ion-list>
+  </div>
+
+
+</ion-content>

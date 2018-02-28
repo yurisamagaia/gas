@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contato
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: #F2F2F2" text-center>
+  <div padding>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="contato">
+        Entre em contato
+      </ion-segment-button>
+      <ion-segment-button value="faca_parte">
+        Nos ajude a melhorar
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'contato'">
+      <p style="color: #777; line-height: 25px;">Sugestão, dúvida, reclamação, não importa o motivo, faremos sempre o possível para atende-lo.</p>
+    </ion-list>
+    <ion-list *ngSwitchCase="'faca_parte'">
+      <p style="color: #777; line-height: 25px;">Estaremos de braços abertos e ficaremos maravilhados se você tiver alguma idéia para contribuir no crescimento do Meu Combustível. Atenderemos com o maior prazer e com certeza agradeceremos muito.</p>
+    </ion-list>
+    <div>
+      <form (ngSubmit)="logForm()">
+        <ion-item style="background-color: #F2F2F2">
+          <ion-label floating>Nome</ion-label>
+          <ion-input type="text" [(ngModel)]="form.nome" name="nome"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: #F2F2F2">
+          <ion-label floating>E-mail</ion-label>
+          <ion-input type="text" [(ngModel)]="form.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: #F2F2F2">
+          <ion-label floating>Telefone</ion-label>
+          <ion-input type="text" [(ngModel)]="form.telefone" name="telefone"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: #F2F2F2">
+          <ion-label floating *ngSwitchCase="'contato'">Mensagem</ion-label>
+          <ion-label floating *ngSwitchCase="'faca_parte'">Descreva a idéia</ion-label>
+          <ion-textarea [(ngModel)]="form.mensagem" name="mensagem"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" block outline margin-top color="dark" style="height: 50px">Enviar</button>
+      </form>
+    </div>
+  </div>
+</ion-content>

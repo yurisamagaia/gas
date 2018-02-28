@@ -1,0 +1,26 @@
+<ion-content padding style="background-color: #F2F2F2" text-center>
+  <img src="assets/imgs/logo.png" style="width: 150px; margin-top: 20px" alt="">
+  <h2 text-center style="color: #666">Welcome to my gas station</h2>
+  <p style="color: #777">Selecione a região mais próxima para filtrar o valor dos combustíveis</p>
+  <ion-item no-lines style="margin-top: 30px;">
+    <ion-label>Região</ion-label>
+    <ion-select [(ngModel)]="state">
+      <ion-option value="balneario_camboriu">Balneario Camboriu</ion-option>
+      <ion-option value="biguacu">Biguaçu</ion-option>
+      <ion-option value="f">Blumenau</ion-option>
+    </ion-select>
+  </ion-item>
+  <button ion-button color="dark" outline block style="margin-top: 30px; height: 50px" (click)="goSearch()" [disabled]="isInvalid()">Buscar</button>
+
+  <!--<ion-item>
+    <ion-label>Combustível</ion-label>
+    <ion-select [(ngModel)]="state">
+      <ion-option value="f">Gasolina</ion-option>
+      <ion-option value="m">Etanol</ion-option>
+      <ion-option value="f">Diesel</ion-option>
+      <ion-option value="f">Diesel s10</ion-option>
+      <ion-option value="f">GNV</ion-option>
+    </ion-select>
+  </ion-item>-->
+
+</ion-content>
